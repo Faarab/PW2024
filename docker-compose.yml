@@ -1,0 +1,23 @@
+
+services:
+  frontend:
+    container_name: Web4
+    build:
+      context: ./WEB
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+  backend:
+    container_name: Api4
+    build:
+      context: ./API
+      dockerfile: Dockerfile
+    volumes:
+      - ./API/data:/app/data 
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=production

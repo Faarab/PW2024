@@ -1,0 +1,15 @@
+.img{
+    width:64vw;
+    height: 42vh;
+    margin-bottom: 2rem;
+    
+}
+@media (max-width: 600px) {
+    .img {
+      height:24vh
+    }}
+
+.imageContainer{
+    display: flex;
+    justify-content: center;   
+}
