@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import  { useState } from 'react';
+import { useState } from 'react';
 import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
@@ -15,10 +15,11 @@ import TextField from '@mui/material/TextField';
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
-    padding: theme.spacing(4), 
+    padding: theme.spacing(4),
+    maxHeight: '400px',
   },
   '& .MuiDialogActions-root': {
-    padding: theme.spacing(2), 
+    padding: theme.spacing(2),
   },
 }));
 
@@ -77,7 +78,7 @@ export default function DialogFilter({ onApply, dati }) {
               multiple
               limitTags={2}
               value={selectedRegioni}
-              disablePortal
+              disablePortal={false} 
               id="combo-box-demo-regioni"
               options={dati?.regioni || []}
               onChange={(event, newValue) => setSelectedRegioni(newValue)}

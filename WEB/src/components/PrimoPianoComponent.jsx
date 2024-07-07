@@ -106,8 +106,8 @@ export default function SimplePaper() {
 
   return (
     <>
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <h3>Primo Piano Cantieri in Italia</h3>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom:'2rem', marginTop:'3rem'}}>
+        <h3 className='titoloPrimoPiano'>Primo Piano Cantieri in Italia</h3>
         <BasicMenu dati={regioniAnni} onApply={handleApplyOptions} />
       </Box>
       
