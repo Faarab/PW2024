@@ -1,5 +1,5 @@
 import FwsFibraComponent from "../components/FwsFibraComponent";
-import { getRegioniAnni, cantieriFibraAnno } from "../services/apiService";
+import { getRegioniAnni, cantieriFwaAnno } from "../services/apiService";
 import fwa from "../assets/image/fwa.png";
 
 export default function FwaPage() {
@@ -7,11 +7,11 @@ export default function FwaPage() {
     <FwsFibraComponent
       initialOptions={{
         regione: 'Lombardia',
-        anno: 2023,
+        anno: 2022,
         stato: ['in esecuzione', 'in programmazione', 'terminato'],
       }}
       fetchOptionsApi={getRegioniAnni}
-      fetchDatiApi={cantieriFibraAnno}
+      fetchDatiApi={cantieriFwaAnno}
       immagineSrc={fwa}
       formLeft={true}
     />

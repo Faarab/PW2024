@@ -77,6 +77,7 @@ export default function DialogFilter({ onApply, dati }) {
             <Autocomplete
               multiple
               limitTags={2}
+              disableCloseOnSelect
               value={selectedRegioni}
               disablePortal={false} 
               id="combo-box-demo-regioni"

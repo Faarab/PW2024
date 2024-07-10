@@ -53,15 +53,25 @@ def api_cantieriFibraAnno():
     result = data_analysis.cantieriFibraAnno(regione, anno, stato)
     print(result)
     return json.dumps(result)
+@app.route('/api/cantieriFwaAnno', methods=['POST'])
+def api_cantieriFwaAnno():
+     
+    regione = flask.request.json.get('regione')
+    anno = flask.request.json.get('anno')
+    stato = flask.request.json.get('stato')
+
+    result = data_analysis.cantieriFwaAnno(regione, anno, stato)
+    print(result)
+    return json.dumps(result)
 
 @app.route('/api/regioniAnni', methods=['GET'])
-def get_dati_unici():
-    unique_values = data_analysis.get_unique_values()
+def getValoriFiltro():
+    unique_values = data_analysis.getValorifiltro()
     return json.dumps(unique_values)
 
 @app.route('/api/delete/<int:id>', methods=['DELETE'])
-def delete_record(id):
-   response, status_code = data_analysis.delete_record(id)
+def delete(id):
+   response, status_code = data_analysis.delete(id)
    return json.dumps(response), status_code
 
 
@@ -71,10 +81,10 @@ def getAll():
     return res
 
 @app.route('/api/update/<int:id>', methods=['PUT'])
-def update_record(id):
+def update(id):
    
     new_values = flask.request.json
-    response_message, status_code = data_analysis.update_record_in_df(id, new_values)
+    response_message, status_code = data_analysis.update(id, new_values)
     return json.dumps(response_message), status_code
 
 if __name__ == "__main__":

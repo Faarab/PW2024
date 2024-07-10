@@ -57,24 +57,34 @@ export async function cantieriFibraAnno(regione, anno, stato) {
       anno :anno,
       stato : stato
     });
-    console.log("Parametri ricevuti:", regione, stato, anno);
     return response.data;
     
   } catch (error) {
-    console.error('Errore nella chiamata API:', error);
+    console.error('Errore:', error);
+    throw error;
+  }
+
+}
+export async function cantieriFwaAnno(regione, anno, stato) {
+  try {
+    const response = await axios.post(`${baseUrl}/cantieriFwaAnno`, {
+      regione : regione,
+      anno :anno,
+      stato : stato
+    });
+    return response.data;
+    
+  } catch (error) {
+    console.error('Errore:', error);
     throw error;
   }
 
 }
 
 export async function getRegioniAnni(){
-  try {
       const response = await axios.get(`${baseUrl}/regioniAnni`);
       return response.data;
-  } catch (error) {
-      console.error("There was an error fetching the regions!", error);
-      throw error;
-  }
+
 }
 export async function getAll(){
   try {
